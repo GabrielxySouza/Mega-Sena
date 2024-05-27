@@ -7,8 +7,8 @@
     <title>MEGA DA VIRADA</title>
 </head>
 <style>
-    select#flist{
-        width: 70px;
+    select#Ilist{
+        width: 100px;
     }
 </style>
 <body>
@@ -21,12 +21,20 @@
      <br>
     <div>
         Escolha 6 números de 1 a 60 :
-        <input type="number" name="" id="Inumber">
+        <input type="number" name="" id="Inumber" min="1" max="60">
         <input type="button" value="Adicionar" onclick="adicionar()">
-        <br>
+        <br><br>
+            <div>
+                Números escolhidos
+                <select name="list" id="Ilist" size="6"></select>
+                <br><br>
+            </div>
         <input type="button" value="Sortear" onclick="sorteio()">
     </div>
 
+    <div id="res">
+        
+    </div>
 
  
 </body>
@@ -36,7 +44,15 @@
     let lista = document.getElementById(flist)
     let valores = []
 
-    function num(n){
+    function NaList(n,l){ //saber se o número está na lista
+        if(l.indexOf(Number(n) != -1)){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    function eNum(n){ //se o número está entre 1 e 60
         if(Number(n) >=1 && Number(n) <=60){
             return true
         }else{
@@ -45,13 +61,25 @@
     }
 
     function adicionar(){
-        
+        let cont = 0;
+        if(eNum(num.value) && !NaList(num.value, valores)){
+            valores.push(Number(num.value))
+            let item = document.createElement('option')
+            item.text = `${num.value}`
+            lista.appendChild(item)
+            res.innerHTML = ''
+        }else{
+            window.alert('Valor inválido ou já encontrado na lista!')
+        }
+        num.value = ''
+        num.focus()
     }
+    
 
     function getRandomInt(min, max){
         return Math.random();
     }
-    console.log()
+    
 
 </script>
 
