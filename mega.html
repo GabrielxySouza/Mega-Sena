@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <title>MEGA DA VIRADA</title>
+</head>
+<style>
+    select#flist{
+        width: 70px;
+    }
+</style>
+<body>
+    <h1>Sorteio da Mega Sena</h1>
+
+    <div>
+        Nome do Jogador:
+        <input type="text" name="nome" id="inome">
+     </div>
+     <br>
+    <div>
+        Escolha 6 números de 1 a 60 :
+        <input type="number" name="" id="Inumber">
+        <input type="button" value="Adicionar" onclick="adicionar()">
+        <br>
+        <input type="button" value="Sortear" onclick="sorteio()">
+    </div>
+
+
+ 
+</body>
+
+<script>
+    let num = document.getElementById(Inumber)
+    let lista = document.getElementById(flist)
+    let valores = []
+
+    function num(n){
+        if(Number(n) >=1 && Number(n) <=60){
+            return true
+        }else{
+            return false
+        }
+    }
+
+    function adicionar(){
+        
+    }
+
+    function getRandomInt(min, max){
+        return Math.random();
+    }
+    console.log()
+
+</script>
+
+</html>
