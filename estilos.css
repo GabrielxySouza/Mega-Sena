@@ -1,0 +1,30 @@
+@charset "UTF-8";
+
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body,html{
+    background-color: rgb(37, 124, 49);
+    font: normal 1em Arial, sans-serif;
+}
+
+header{
+    text-align: center;
+    margin: 50px;
+}
+
+section{
+    background-color: rgb(173, 173, 173);
+    border-radius: 10px;
+    padding: 15px;
+    width: 450px;
+    height: 50vh;
+    margin: auto;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.219);
+}
+
+select#flist{
+    width: 120px;
+}
