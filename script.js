@@ -1,11 +1,11 @@
-let nome = document.getElementById('nome').value
 let num = document.querySelector('input#fnum')
+let nome = document.querySelector('input#Inome')
 let lista = document.querySelector('select#flist')
 let res = document.querySelector('div#res')
 let valores = []
 
 function isNumero(n){
-    if(Number(n) >= 1 && Number (n) <= 60){ //teste se número está entre 1 e 60
+    if(Number(n) >= 1 && Number (n) <= 60){ //teste se número está entre 1 e 100
         return true
     }else{
         return false
@@ -16,26 +16,25 @@ function inLista(n, l) {
     if(l.indexOf(Number(n)) != -1) { //teste para saber se o número está na lista
         return true
     }else{ 
-        return falses
+        return false
     }
 }
 
 function adicionar(){ 
-        if(valores.length >= 6){
-            window.alert('Limite de números alcançado!')
-        }else{
-        if(isNumero(num.value) && !inLista(num.value, valores)){ //colocando os valores no vetor e na lista
-            valores.push(Number(num.value))
-            let item = document.createElement('option')
-            item.text = `número ${num.value} adicionado.`
-            lista.appendChild(item)
-            res.innerHTML = ''
-        }else {
-            window.alert('Valor inválido ou já encontrado na lista!')
-        }
-        num.value = ''
-        num.focus()
-        }   
+    if(valores.length >=6 ){
+        alert('Limite de números alcançado!')
+    }else
+    if(isNumero(num.value) && !inLista(num.value, valores)){ //colocando os valores no vetor e na lista
+        valores.push(Number(num.value))
+        let item = document.createElement('option')
+        item.text = `Escolheu o número: ${num.value} `
+        lista.appendChild(item)
+        res.innerHTML = ''
+    }else {
+        window.alert('Valor inválido ou já escolhido!')
+    }
+    num.value = ''
+    num.focus()   
 }
 
 function gerarNumeroAleatorio(min, max) {
@@ -64,8 +63,8 @@ function finalizar(){ //finalizando, analisando e mostrando dados
     }else{
         valores.sort((a,b) => a - b)
         numerosSorteados.sort((a,b) => a - b)
-        acertos   
-        switch(acertos){
+        let Nacertos = acertos    
+        switch(Nacertos){
             case 6:
               alert("Parabéns! Você acertou 6 números e ganhou a SENA! Sua aposta foi " + valores + " e os números sorteados foram " + numerosSorteados);
               break;
@@ -78,10 +77,10 @@ function finalizar(){ //finalizando, analisando e mostrando dados
             default:
               alert("Você acertou menos de 4 números. Boa sorte  na  próxima. Sua aposta foi " + valores + " e os números sorteados foram " + numerosSorteados);
           }
-
         res.innerHTML = ''
         res.innerHTML += `<p> ${nome}Você escolheu os números: ${valores} .</p> `
         res.innerHTML += `<p> Os números sorteados foram ${numerosSorteados}.</p>`
-        res.innerHTML += `<p> Você acertou ${acertos} números.</p>`
+        res.innerHTML += `<p> Você acertou ${Nacertos} números.</p>`
     }
 }
+//cods trocado - refazer    
